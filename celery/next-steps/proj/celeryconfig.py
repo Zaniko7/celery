@@ -8,3 +8,9 @@ include = ['proj.tasks']
 # accept_content = ['json']
 timezone = 'Asia/Tehran'
 enable_utc = True
+
+task_routes = {
+    'proj.tasks.add' : {'queue':'queue1'},
+    'proj.tasks.divide' : {'queue':'queue2'},
+    'proj.tasks.average' : {'queue':'queue3'}
+}

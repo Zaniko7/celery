@@ -39,5 +39,14 @@ from celery import group, chain, chord
 # ch = chain(add.s(8) | divide.s(2) )
 # print(ch(4).get())
 
-ch = chord((add.s(i,i)for i in range(10)), average.s())
-print(ch().get())
+# ch = chord((add.s(i,i)for i in range(10)), average.s())
+# print(ch().get())
+
+result = add.delay(2,4)
+print(result.get())
+
+result = divide.delay(12, 2)
+print(result.get())
+
+result = average.delay([1,2,3])
+print(result.get())
